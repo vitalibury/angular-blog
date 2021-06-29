@@ -1,7 +1,9 @@
 export interface User {
   email: string
-  password: string
+  password: string,
+  returnSecureToken?: boolean
 }
 export interface fbAuthResponse {
-  idToken: string
+  idToken: string,
+  expiresIn: string
 }
