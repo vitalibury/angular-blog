@@ -1,1 +1,53 @@
-<p>login-page works!</p>
+<form class="card" [formGroup]="myForm" (ngSubmit)="submit()">
+  <h2>Войти в панель администратора</h2>
+
+  <div
+    class="form-control"
+    [ngClass]="{
+      invalid:
+        myForm.controls['email'].touched && myForm.controls['email'].invalid
+    }"
+  >
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" />
+    <div
+      class="validation"
+      *ngIf="
+        myForm.controls['email'].invalid && myForm.controls['email'].touched
+      "
+    >
+      <small *ngIf="myForm.get('email').errors.required">Введите email</small>
+      <small *ngIf="myForm.get('email').errors.email"
+        >Введите корректный email</small
+      >
+    </div>
+  </div>
+
+  <div
+    class="form-control"
+    [ngClass]="{
+      invalid:
+        myForm.controls['password'].touched &&
+        myForm.controls['password'].invalid
+    }"
+  >
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" formControlName="password" />
+    <div
+      class="validation"
+      *ngIf="myForm.get('password').touched && myForm.get('password').invalid"
+    >
+      <small *ngIf="myForm.get('password').errors.required">
+        Введите пароль
+      </small>
+      <small *ngIf="myForm.get('password').errors.minlength">
+        Пароль должен быть не менее
+        {{ myForm.get("password").errors.minlength.requiredLength }} символов.
+        Сейчас он
+        {{ myForm.get("password").errors.minlength.actualLength }} символов
+      </small>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Войти</button>
+</form>
