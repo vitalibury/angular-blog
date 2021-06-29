@@ -10,6 +10,7 @@ import { DashboardPageComponent } from "./dashboard-page/dashboard-page.componen
 import { EditPageComponent } from "./edit-page/edit-page.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
+import { AuthService } from "./shared/services/auth.service";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-lay
       }
     ])
   ],
+  providers: [AuthService],
   exports: [
     RouterModule
   ]
