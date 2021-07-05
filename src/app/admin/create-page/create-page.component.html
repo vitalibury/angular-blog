@@ -1,1 +1,52 @@
-<p>create-page works!</p>
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <h2>Создать новый пост</h2>
+
+  <div
+    class="form-control"
+    [ngClass]="{
+      invalid: form.controls['title'].touched && form.controls['title'].invalid
+    }"
+  >
+    <label for="title">Название поста:</label>
+    <input type="text" id="title" formControlName="title" />
+    <div
+      class="validation"
+      *ngIf="form.controls['title'].invalid && form.controls['title'].touched"
+    >
+      <small *ngIf="form.get('title').errors.required"
+        >Введите название поста</small
+      >
+    </div>
+  </div>
+  <div
+    class="form-control"
+    [ngClass]="{
+      invalid:
+        form.controls['content'].touched && form.controls['content'].invalid
+    }"
+  >
+    <label for="content">Введите контент поста:</label>
+    <quill-editor formControlName="content"></quill-editor>
+  </div>
+
+  <div
+    class="form-control"
+    [ngClass]="{
+      invalid:
+        form.controls['author'].touched && form.controls['author'].invalid
+    }"
+  >
+    <label for="author">Автор поста:</label>
+    <input type="text" id="author" formControlName="author" />
+    <div
+      class="validation"
+      *ngIf="form.controls['author'].invalid && form.controls['author'].touched"
+    >
+      <small *ngIf="form.get('author').errors.required">Укажите автора</small>
+    </div>
+  </div>
+
+  <button class="btn btn-dark" type="submit" [disabled]="form.invalid">
+    Создать пост
+  </button>
+</form>

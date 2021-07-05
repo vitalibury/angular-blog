@@ -6,7 +6,8 @@ import { Environment } from "./interface";
 
 export const environment: Environment = {
   production: false,
-  apiKey: 'REMOVED_API_KEY'
+  apiKey: 'REMOVED_API_KEY',
+  fbRtDataBase: 'REMOVED_DATABASE_URL'
 };
 
 /*
