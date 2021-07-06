@@ -5,13 +5,14 @@ import { RouterModule } from "@angular/router";
 
 import { SharedModule } from "../shared/shared.module";
 
+import { AuthGuard } from "./shared/services/auth.guard";
+
 import { CreatePageComponent } from "./create-page/create-page.component";
 import { DashboardPageComponent } from "./dashboard-page/dashboard-page.component";
 import { EditPageComponent } from "./edit-page/edit-page.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
-import { AuthGuard } from "./shared/services/auth.guard";
-import { AuthService } from "./shared/services/auth.service";
+import { PostsPipe } from "./shared/posts.pipe";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AuthService } from "./shared/services/auth.service";
     LoginPageComponent,
     DashboardPageComponent,
     CreatePageComponent,
-    EditPageComponent
+    EditPageComponent,
+    PostsPipe
   ],
   imports: [
     CommonModule,
