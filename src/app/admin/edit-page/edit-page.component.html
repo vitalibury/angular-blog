@@ -24,7 +24,11 @@
       <quill-editor formControlName="content"></quill-editor>
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid || submitted"
+    >
       Сохранить пост
     </button>
   </form>
