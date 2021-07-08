@@ -22,7 +22,7 @@
         <td>{{ i + 1 }}</td>
         <td>{{ post.author }}</td>
         <td>{{ post.title }}</td>
-        <td>{{ post.date | date: "dd/mm/yy" }}</td>
+        <td>{{ post.date | date:'medium':null:'ru' }}</td>
         <td>
           <a
             class="btn btn-link open"
