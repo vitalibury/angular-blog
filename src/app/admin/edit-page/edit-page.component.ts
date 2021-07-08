@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Post } from 'src/app/shared/intefaces';
 import { PostService } from 'src/app/shared/services/post.service';
+import { AlertService } from '../shared/services/alert.service';
 
 @Component({
   selector: 'app-edit-page',
@@ -18,7 +19,7 @@ export class EditPageComponent implements OnInit {
   form: FormGroup
   submitted = false
 
-  constructor( private postService: PostService, private route: ActivatedRoute) { }
+  constructor( private postService: PostService, private route: ActivatedRoute, private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.route.params.pipe(
@@ -46,6 +47,7 @@ export class EditPageComponent implements OnInit {
       content: this.form.value.content
     }).subscribe(() => {
       this.submitted = false;
+      this.alertService.success('Пост обновлен');
     })
   }
 

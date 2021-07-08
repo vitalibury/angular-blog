@@ -17,7 +17,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
   multi: true,
-  useClass:AuthInterceptor
+  useClass: AuthInterceptor
 }
 
 @NgModule({
