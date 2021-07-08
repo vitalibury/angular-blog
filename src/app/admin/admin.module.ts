@@ -13,6 +13,8 @@ import { EditPageComponent } from "./edit-page/edit-page.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
 import { PostsPipe } from "./shared/posts.pipe";
+import { AlertComponent } from './shared/components/alert/alert.component';
+import { AlertService } from "./shared/services/alert.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { PostsPipe } from "./shared/posts.pipe";
     DashboardPageComponent,
     CreatePageComponent,
     EditPageComponent,
-    PostsPipe
+    PostsPipe,
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +43,7 @@ import { PostsPipe } from "./shared/posts.pipe";
       }
     ])
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, AlertService],
   exports: [
     RouterModule
   ]
