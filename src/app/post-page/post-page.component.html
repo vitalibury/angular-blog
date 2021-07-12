@@ -1,55 +1,20 @@
-<div class="post">
+<div class="post" *ngIf="post$ | async as post; else loading">
   <div class="header">
-    <h2>Post title</h2>
+    <h2>{{ post.title }}</h2>
 
     <button routerLink="/" class="btn btn-link">To main page</button>
   </div>
 
   <div class="info">
-    <strong>Author name</strong>
-    <small>12.09.2019</small>
+    <strong>{{ post.author }}</strong>
+    <small>{{ post.date | date: "medium":null:"ru" }}</small>
   </div>
 
   <div>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos sint
-      qui suscipit quo earum, animi adipisci? Eveniet reiciendis recusandae
-      dolor veniam maiores voluptatem accusantium labore nostrum autem fugit,
-      repellendus fuga dignissimos, nobis eaque minima accusamus unde. Cum
-      eligendi commodi facere voluptate aperiam, provident quo? Animi quidem eos
-      ad nostrum minus?
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos sint
-      qui suscipit quo earum, animi adipisci? Eveniet reiciendis recusandae
-      dolor veniam maiores voluptatem accusantium labore nostrum autem fugit,
-      repellendus fuga dignissimos, nobis eaque minima accusamus unde. Cum
-      eligendi commodi facere voluptate aperiam, provident quo? Animi quidem eos
-      ad nostrum minus?
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos sint
-      qui suscipit quo earum, animi adipisci? Eveniet reiciendis recusandae
-      dolor veniam maiores voluptatem accusantium labore nostrum autem fugit,
-      repellendus fuga dignissimos, nobis eaque minima accusamus unde. Cum
-      eligendi commodi facere voluptate aperiam, provident quo? Animi quidem eos
-      ad nostrum minus?
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos sint
-      qui suscipit quo earum, animi adipisci? Eveniet reiciendis recusandae
-      dolor veniam maiores voluptatem accusantium labore nostrum autem fugit,
-      repellendus fuga dignissimos, nobis eaque minima accusamus unde. Cum
-      eligendi commodi facere voluptate aperiam, provident quo? Animi quidem eos
-      ad nostrum minus?
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos sint
-      qui suscipit quo earum, animi adipisci? Eveniet reiciendis recusandae
-      dolor veniam maiores voluptatem accusantium labore nostrum autem fugit,
-      repellendus fuga dignissimos, nobis eaque minima accusamus unde. Cum
-      eligendi commodi facere voluptate aperiam, provident quo? Animi quidem eos
-      ad nostrum minus?
-    </p>
+    <quill-view-html [content]="post.content"> </quill-view-html>
   </div>
 </div>
+
+<ng-template #loading>
+  <p class="text-center">Загружаю пост...</p>
+</ng-template>
